@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaBookmark } from "react-icons/fa";
 
-const Blog = ({ blog, handleBookMark }) => {
+const Blog = ({ blog, handleBookMark, handleMarkAsRead }) => {
   // console.log(handleBookMark)
     // const  {blog} = props
     // console.log(blog)
@@ -26,11 +26,11 @@ const Blog = ({ blog, handleBookMark }) => {
             <div className='flex'>
               
               {
-                blog.hashtags.map((has) => <p>{has}</p>)
+                blog.hashtags.map((has) => <p key={has}>{has}</p>)
               }
              </div>
     <div className="card-actions justify-end">
-      <button className="btn btn-primary">Mark as Read</button>
+      <button onClick={()=> handleMarkAsRead(blog.reading_time, blog.id)} className="btn btn-primary">Mark as Read</button>
     </div>
   </div>
 </div>
